@@ -1,11 +1,38 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import LenisProvider from "@/components/lenis/lenis-provider";
 
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
+});
+
+const lineSeedJp = localFont({
+  variable: "--font-line-seed-jp",
+  src: [
+    {
+      path: "../../public/fonts/LINE_Seed_JP/LINESeedJP-Thin.ttf",
+      weight: "100",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/LINE_Seed_JP/LINESeedJP-Regular.ttf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/LINE_Seed_JP/LINESeedJP-Bold.ttf",
+      weight: "700",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/LINE_Seed_JP/LINESeedJP-ExtraBold.ttf",
+      weight: "800",
+      style: "normal",
+    },
+  ],
 });
 
 export const metadata: Metadata = {
@@ -20,7 +47,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} antialiased`}>
+      <body
+        className={`${inter.variable} ${lineSeedJp.variable} antialiased`}
+      >
         <LenisProvider>{children}</LenisProvider>
       </body>
     </html>
