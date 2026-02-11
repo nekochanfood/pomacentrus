@@ -10,12 +10,13 @@ type LenisProviderProps = {
 export default function LenisProvider({ children }: LenisProviderProps) {
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 0.7,
-      easing: (t) => 1 - Math.pow(1 - t, 3),
-      lerp: 0.15,
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      gestureOrientation: "vertical",
       smoothWheel: true,
-      wheelMultiplier: 1,
-      touchMultiplier: 1,
+      touchMultiplier: 2,
+      infinite: false,
+      autoResize: true,
     });
     let rafId = 0;
 

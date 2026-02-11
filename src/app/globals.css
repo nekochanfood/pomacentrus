@@ -1,19 +1,18 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --font-sans: var(--font-inter), var(--font-line-seed-jp), sans-serif;
-  --page-pad: 0.75rem;
-  --page-pad-sm: 1.5rem;
-  --page-max-w: 72rem;
+    --background: #000000;
+    --foreground: oklch(97% 0 0);
+    --font-sans: var(--font-inter), var(--font-line-seed-jp), sans-serif;
+    --page-max-w: 64rem;
 }
 
 html,
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-sans);
+    background: var(--background);
+    color: var(--foreground);
+    fill: var(--foreground);
+    font-family: var(--font-sans);
 }
 
 .min-h-dvh {
@@ -27,11 +26,7 @@ body {
 }
 
 @layer utilities {
-  .page-pad {
-    @apply px-[var(--page-pad)] sm:px-[var(--page-pad-sm)];
-  }
-
-  .page-container {
-    @apply mx-auto w-full max-w-[var(--page-max-w)];
-  }
+    .page-container {
+        @apply mx-auto w-full max-w-(--page-max-w) p-6;
+    }
 }
