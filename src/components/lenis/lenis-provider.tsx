@@ -9,7 +9,14 @@ type LenisProviderProps = {
 
 export default function LenisProvider({ children }: LenisProviderProps) {
   useEffect(() => {
-    const lenis = new Lenis();
+    const lenis = new Lenis({
+      duration: 0.7,
+      easing: (t) => 1 - Math.pow(1 - t, 3),
+      lerp: 0.15,
+      smoothWheel: true,
+      wheelMultiplier: 1,
+      touchMultiplier: 1,
+    });
     let rafId = 0;
 
     const raf = (time: number) => {
