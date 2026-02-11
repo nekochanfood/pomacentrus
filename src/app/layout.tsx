@@ -3,6 +3,8 @@ import { Inter } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 import LenisProvider from "@/components/lenis/lenis-provider";
+import Header from "@/components/layout/header";
+import Footer from "@/components/layout/footer";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -46,11 +48,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${inter.variable} ${lineSeedJp.variable} antialiased`}
-      >
-        <LenisProvider>{children}</LenisProvider>
+    <html
+      lang="en"
+      className={`${inter.variable} ${lineSeedJp.variable} antialiased`}
+    >
+      <body>
+        <LenisProvider>
+          <div className="flex min-h-screen min-h-dvh flex-col">
+            <Header />
+            <main className="flex-1 flex flex-col">{children}</main>
+          </div>
+          <Footer />
+        </LenisProvider>
       </body>
     </html>
   );
